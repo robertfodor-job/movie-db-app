@@ -15,7 +15,6 @@ const Ratings = ({ data }) => {
       {b ? <img src={rt_icon_url} alt="" /> : ''}
       <p>{b?.Value}</p>
       {c ? <img src={mc_icon_url} alt="" /> : ''}
-
       <p>{c?.Value}</p>
     </div>
   );

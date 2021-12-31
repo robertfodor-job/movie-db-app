@@ -304,7 +304,7 @@ Single Movie
 @media screen and (max-width: 576px) {
   .flex-container > img {
     background-color: #f1f1f1;
-    width: 87px;
+    width: 47px;
     /* margin: 5px; */
     margin: 0 auto;
     /* text-align: center;
