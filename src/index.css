@@ -271,6 +271,7 @@ Single Movie
   letter-spacing: var(--spacing);
   /* margin: 0.5rem 0 0 12rem; */
   float: right;
+  padding: 10px;
 }
 
 @media screen and (min-width: 992px) {
