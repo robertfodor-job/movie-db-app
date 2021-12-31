@@ -270,6 +270,7 @@ Single Movie
   margin-top: 0.5rem;
   letter-spacing: var(--spacing);
 }
+
 @media screen and (min-width: 992px) {
   .single-movie {
     grid-template-columns: 1fr 2fr;
@@ -296,6 +297,24 @@ Single Movie
 }
 .flex-container > p {
   text-align: center;
-  line-height: 75px;
-  font-size: 30px;
+  /* line-height: 75px; */
+  font-size: 1.8rem;
+}
+
+@media screen and (max-width: 576px) {
+  .flex-container > img {
+    background-color: #f1f1f1;
+    width: 87px;
+    /* margin: 5px; */
+    margin: 0 auto;
+    /* text-align: center;
+    line-height: 75px;
+    font-size: 30px; */
+  }
+  .flex-container > p {
+    margin: auto;
+    text-align: center;
+    /* line-height: 75px; */
+    font-size: 1.3rem;
+  }
 }
