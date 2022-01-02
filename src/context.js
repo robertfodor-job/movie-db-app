@@ -1,11 +1,11 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 // make sure to use https
 import useFetch from './useFetch.js';
 
 const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
-  const [query, setQuery] = useState('batman');
+  const [query, setQuery] = useState('spider-man');
   const { loading, data: movies, error } = useFetch(`&s=${query}`);
 
   return (

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
 export const API_ENDPOINT = `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_SECRET_API_KEY}`;
 
@@ -7,7 +7,7 @@ const useFetch = urlParams => {
   const [error, setError] = useState({ show: false, msg: '' });
   const [data, setData] = useState(null);
 
-  const fetchMovies = async url => {
+  const fetchMovies = useCallback(async url => {
     setLoading(true);
     try {
       const response = await fetch(url);
@@ -25,10 +25,22 @@ const useFetch = urlParams => {
     } catch (error) {
       console.log(error);
     }
-  };
+  }, []);
+
+  // useEffect(() => {
+  //   fetchMovies(`${API_ENDPOINT}${urlParams}`);
+  // }, [urlParams]);
 
   useEffect(() => {
-    fetchMovies(`${API_ENDPOINT}${urlParams}`);
+    if (loading === true) fetchMovies(`${API_ENDPOINT}${urlParams}`);
+    else {
+      const timeOutId = setTimeout(
+        () => fetchMovies(`${API_ENDPOINT}${urlParams}`),
+        500
+      );
+      return () => clearTimeout(timeOutId);
+    }
+    // eslint-disable-next-line
   }, [urlParams]);
 
   return { loading, error, data };
